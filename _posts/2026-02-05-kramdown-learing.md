@@ -1,4 +1,5 @@
 ---
+title: learning note
 date: 2026-02-15 17:54
 ---
 # the first title
