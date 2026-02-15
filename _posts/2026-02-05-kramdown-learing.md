@@ -1,6 +1,6 @@
 ---
 title: learning note
-date: 2026-02-15 17:54
+date: 2026-02-15 16:00:00 +0800
 ---
 # the first title
 ## second title
