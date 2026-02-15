@@ -7,3 +7,38 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* 自定义背景色 - 极简版 */
+body {
+  background-color: #7df9f950;
+}
+/* 调整头像样式 */
+.author__avatar img, 
+.avatar img, 
+.site-logo img {
+  /* 1. 圆角设置 */
+  border-radius: 50%; /* 设置为圆形 */
+  /* border-radius: 10px; */ /* 设置为圆角矩形 */
+
+  /* 2. 大小调整 */
+  width: 1500px; /* 调整宽度 */
+  height: auto; /* 调整高度 */
+  object-fit: cover; /* 保持图片比例，防止变形 */
+
+  /* 3. 边框样式 */
+  border: 3px solid #e0e0e0; /* 边框宽度、样式、颜色 */
+  /* border: 3px solid rgba(255, 255, 255, 0.3); */ /* 半透明边框 */
+
+  /* 4. 阴影效果 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+  /* box-shadow: 0 0 0 4px #fff, 0 0 0 6px #e0e0e0; */ /* 双层边框效果 */
+
+  /* 5. 悬停效果 */
+  transition: all 0.3s ease; /* 平滑过渡 */
+}
+.author__avatar img:hover, 
+.avatar img:hover, 
+.site-logo img:hover {
+  transform: scale(1.05); /* 悬停时轻微放大 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 悬停时阴影加深 */
+}
