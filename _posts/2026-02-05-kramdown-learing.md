@@ -1,6 +1,6 @@
 ---
 
-date: 2026-02-15 16:00:00
+date: 2026-02-15 16:00:00 +0800
 ---
 # the first title
 ## second title
