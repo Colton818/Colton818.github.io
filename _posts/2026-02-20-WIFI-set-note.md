@@ -1,5 +1,5 @@
 ---
-date: 2026-02-20 12:07
+date: 2026-02-20 12:07 +0800
 title: A little tip for setting up the wifi
 categories: ["learning-notes", "algorithms"]
 ---
