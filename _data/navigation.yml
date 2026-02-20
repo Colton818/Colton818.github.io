@@ -1,12 +1,32 @@
-# _data/navigation.yml
 main:
-  - title: "首页"
-    url: /
-  - title: "归档"
-    url: /year-archive/
-  - title: "分类"
-    url: /categories/
-  - title: "标签"
-    url: /tags/
-  - title: "关于"
-    url: /about/
+  - title: "Home"
+    url: "/"
+    
+  - title: "Tech Articles"
+    url: "/tech/"
+    children:
+      - title: "Latest"
+        url: "/tech/latest/"
+      - title: "Tutorials"
+        url: "/tech/tutorials/"
+      - title: "Tools"
+        url: "/tech/tools/"
+    
+  - title: "Learning Notes"
+    url: "/learning-notes/"
+    children:
+      - title: "Algorithms"
+        url: "/algorithms/"
+      - title: "Machine Learning"
+        url: "/machine-learning/"
+    
+  - title: "Essays"
+    url: "/essays/"
+    children:
+      - title: "Life"
+        url: "/essays/life/"
+      - title: "Thoughts"
+        url: "/essays/thoughts/"
+    
+  - title: "About"
+    url: "/about/"

@@ -15,7 +15,7 @@ remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "mint" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "zh-cn"
+locale                   : en-US
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
 title                    : "Colton Star Blog"
 title_separator          : "-"
@@ -67,7 +67,7 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
-  hide                   : # true, false (default)
+  hide                   : true, false (default)
 search                   : true
 search_full_content      : true
 search_provider          : # lunr (default), algolia, google
@@ -115,7 +115,7 @@ analytics:
 author:
   name             : "Colton/曹越"
   avatar           : "/assets/images/avatar.jpg"
-  bio              : "I am a **dazzling** person.<br><br> **Academic experience:** <br>Anqing NO.1 middle school 2022-2025
+  bio              : "I am a **dazzling** person.<br><br> **Academic experience:** <br>***Anqing NO.1 middle school*** 2022-2025
   <br>***Northeastern University at Qinghuangdao.***(NEUQ) 2025-now
                       <br>"
   location         : "China ANHUI"

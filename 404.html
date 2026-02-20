@@ -1,0 +1,552 @@
+---
+layout: default
+title: "404 - Lost in Cyberspace"
+permalink: /404.html
+---
+
+<div class="lost-in-space">
+  <div class="container">
+    <div class="astronaut">👨‍🚀</div>
+    <h1>404</h1>
+    <h2>Houston, we have a problem!</h2>
+    
+    <p class="subtitle">You've drifted into uncharted digital space. Let's get you back on course:</p>
+    
+    <div class="navigation">
+      <a href="/" class="nav-btn home">
+        <span class="icon">🏠</span>
+        <span class="text">Home Base</span>
+      </a>
+      
+      <a href="/tech/" class="nav-btn tech">
+        <span class="icon">💻</span>
+        <span class="text">Tech Articles</span>
+      </a>
+      
+      <a href="/learning-notes/" class="nav-btn notes">
+        <span class="icon">📚</span>
+        <span class="text">Learning Notes</span>
+      </a>
+      
+      <a href="/archive/" class="nav-btn archive">
+        <span class="icon">📁</span>
+        <span class="text">Article Archive</span>
+      </a>
+    </div>
+    
+    <div class="search-rescue">
+      <h3>Search & Rescue Mission</h3>
+      <p>What were you looking for?</p>
+      <form action="/search/" method="get" class="search-form">
+        <input type="text" name="q" placeholder="Enter keywords..." class="search-input" aria-label="Search articles">
+        <button type="submit" class="search-btn">
+          <span class="btn-icon">🚀</span>
+          <span class="btn-text">Search</span>
+        </button>
+      </form>
+    </div>
+    
+    <div class="recent-posts">
+      <h3>Recent Landing Zones</h3>
+      <ul>
+        {% for post in site.posts limit:5 %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+    <div class="space-credit">
+      <small>Lost in space? Don't panic. Just click a link above.</small>
+    </div>
+  </div>
+</div>
+
+<style>
+/* 基础重置 */
+.lost-in-space {
+  min-height: 100vh;
+  min-height: 100dvh; /* 使用 dvh 单位解决移动端问题 */
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* 宇航员动画 */
+.astronaut {
+  font-size: clamp(3rem, 10vw, 5rem);
+  animation: float 3s ease-in-out infinite;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 5px 15px rgba(79, 195, 247, 0.3));
+}
+
+/* 标题样式 */
+h1 {
+  font-size: clamp(4rem, 15vw, 8rem);
+  margin: 0.5rem 0;
+  color: #4fc3f7;
+  text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin: 1rem 0;
+  color: #bbdefb;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  color: #e3f2fd;
+  max-width: min(500px, 90vw);
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+/* 导航按钮 */
+.navigation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: clamp(1.2rem, 3vw, 1.5rem);
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn:hover, .nav-btn:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #4fc3f7;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(79, 195, 247, 0.2);
+  outline: none;
+}
+
+.nav-btn:active {
+  transform: translateY(-2px) scale(1);
+}
+
+.nav-btn .icon {
+  font-size: clamp(2rem, 6vw, 2.5rem);
+  display: block;
+  margin-bottom: 0.8rem;
+  transition: transform 0.3s;
+}
+
+.nav-btn:hover .icon {
+  transform: scale(1.1);
+}
+
+.nav-btn .text {
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 搜索框 */
+.search-rescue {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  max-width: min(600px, 90vw);
+  margin: 3rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-rescue h3 {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  color: #bbdefb;
+  margin-bottom: 0.5rem;
+}
+
+.search-rescue p {
+  color: #e3f2fd;
+  margin-bottom: 1.5rem;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+.search-form {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 250px;
+  padding: 0.9rem 1.4rem;
+  border: 2px solid #4fc3f7;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #29b6f6;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.3);
+}
+
+.search-input::placeholder {
+  color: #90caf9;
+  opacity: 0.7;
+}
+
+.search-btn {
+  padding: 0.9rem 1.8rem;
+  background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+  color: #0d47a1;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.search-btn:hover, .search-btn:focus {
+  background: linear-gradient(135deg, #29b6f6 0%, #039be5 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(41, 182, 246, 0.4);
+  outline: none;
+}
+
+.search-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+.btn-text {
+  font-weight: 600;
+}
+
+/* 最近文章 */
+.recent-posts {
+  max-width: min(600px, 90vw);
+  margin: 3rem auto 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.recent-posts h3 {
+  color: #bbdefb;
+  margin-bottom: 1.2rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+}
+
+.recent-posts ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.recent-posts li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.recent-posts a {
+  color: #e3f2fd;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+.recent-posts a:hover, .recent-posts a:focus {
+  color: #4fc3f7;
+  background: rgba(79, 195, 247, 0.1);
+  padding-left: 1rem;
+  outline: none;
+}
+
+/* 底部文字 */
+.space-credit {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #90caf9;
+  font-size: 0.9rem;
+}
+
+/* 动画 */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  33% { 
+    transform: translateY(-12px) rotate(3deg); 
+  }
+  66% { 
+    transform: translateY(-6px) rotate(-3deg); 
+  }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    text-shadow: 0 0 10px #4fc3f7, 0 0 20px rgba(79, 195, 247, 0.5); 
+  }
+  50% { 
+    text-shadow: 0 0 20px #4fc3f7, 0 0 40px rgba(79, 195, 247, 0.8); 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 0.5; 
+  }
+  50% { 
+    opacity: 1; 
+  }
+}
+
+/* 应用动画 */
+.astronaut {
+  animation: float 4s ease-in-out infinite;
+}
+
+h1 {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* 背景星星效果 */
+.lost-in-space::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.6) 1px, transparent 0),
+    radial-gradient(1px 1px at 20% 35%, rgba(255, 255, 255, 0.4) 1px, transparent 0),
+    radial-gradient(1px 1px at 30% 50%, rgba(255, 255, 255, 0.8) 1px, transparent 0),
+    radial-gradient(1px 1px at 40% 65%, rgba(255, 255, 255, 0.3) 1px, transparent 0),
+    radial-gradient(1px 1px at 50% 80%, rgba(255, 255, 255, 0.5) 1px, transparent 0),
+    radial-gradient(1px 1px at 60% 15%, rgba(255, 255, 255, 0.7) 1px, transparent 0),
+    radial-gradient(1px 1px at 70% 30%, rgba(255, 255, 255, 0.4) 1px, transparent 0),
+    radial-gradient(1px 1px at 80% 45%, rgba(255, 255, 255, 0.6) 1px, transparent 0),
+    radial-gradient(1px 1px at 90% 60%, rgba(255, 255, 255, 0.3) 1px, transparent 0);
+  background-size: 300px 300px;
+  animation: pulse 8s infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 响应式设计优化 */
+@media (max-width: 768px) {
+  .lost-in-space {
+    padding: 0.5rem;
+  }
+  
+  .container {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .navigation {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .nav-btn {
+    min-height: 100px;
+    padding: 1.2rem;
+  }
+  
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-input {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .search-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .recent-posts ul {
+    padding: 0 0.5rem;
+  }
+  
+  .recent-posts a {
+    padding: 0.5rem 0.3rem;
+  }
+  
+  .recent-posts a:hover {
+    padding-left: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: clamp(3rem, 12vw, 4rem);
+    letter-spacing: -1px;
+  }
+  
+  h2 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+  }
+  
+  .nav-btn {
+    min-height: 90px;
+    padding: 1rem;
+  }
+  
+  .nav-btn .icon {
+    margin-bottom: 0.5rem;
+  }
+  
+  .search-rescue {
+    padding: 1.2rem;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .lost-in-space {
+    background: #0a1929;
+  }
+  
+  .nav-btn {
+    border: 3px solid white;
+  }
+  
+  .search-input {
+    border: 3px solid #4fc3f7;
+  }
+}
+
+/* 减少动画（尊重用户偏好） */
+@media (prefers-reduced-motion: reduce) {
+  .astronaut,
+  h1,
+  .nav-btn,
+  .search-btn {
+    animation: none;
+    transition: none;
+  }
+  
+  .nav-btn:hover {
+    transform: none;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .nav-btn:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .nav-btn:active {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(0.98);
+  }
+  
+  .search-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .recent-posts a:active {
+    background: rgba(79, 195, 247, 0.1);
+    padding-left: 1rem;
+  }
+}
+</style>
+
+<script>
+// 添加一些交互效果
+document.addEventListener('DOMContentLoaded', function() {
+  // 为所有链接添加点击反馈
+  const links = document.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // 添加点击反馈动画
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
+    });
+  });
+  
+  // 搜索表单处理
+  const searchForm = document.querySelector('.search-form');
+  if (searchForm) {
+    searchForm.addEventListener('submit', function(e) {
+      const input = this.querySelector('.search-input');
+      if (!input.value.trim()) {
+        e.preventDefault();
+        input.focus();
+        input.style.animation = 'shake 0.5s';
+        setTimeout(() => {
+          input.style.animation = '';
+        }, 500);
+      }
+    });
+  }
+  
+  // 添加摇动动画
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+  `;
+  document.head.appendChild(style);
+});
+</script>
